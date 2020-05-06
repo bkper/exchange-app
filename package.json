@@ -1,0 +1,48 @@
+{
+  "name": "@bkper/http-request-app",
+  "version": "1.0.4",
+  "description": "Fluent interface for Google Apps Script URL Fetch Service, to simplify 3rd party API integrations",
+  "homepage": "https://bkper.com/docs/#httprequestapp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bkper/http-request-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bkper/http-request-app/issues",
+    "email": "mael@bkper.com"
+  },
+  "author": "Mael Caldas <mael@bkper.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf build && rimraf dist",
+    "login": "clasp login",
+    "open": "clasp open",
+    "pull": "clasp pull",
+    "push": "clasp push",
+    "start": "yarn push --watch",
+    "test": "run-s test:*",
+    "test:bundle": "tsc --skipLibCheck --sourcemap --outFile build/test-bundle.js --module system",
+    "test:run": "mocha --require source-map-support/register build/test-bundle.js",
+    "build": "yarn && run-s clean test build:*",
+    "build:types": "yarn clasp-types",
+    "patch": "yarn version --patch",
+    "minor": "yarn version --minor",
+    "major": "yarn version --major",
+    "preversion": "run-s build push",
+    "postversion": "clasp version $npm_package_version && git push && git push --tags  && echo \"Successfully released version $npm_package_version!\"",
+    "publish-types": "yarn build && yarn --cwd dist/@bkper/http-request-app-types publish --new-version $npm_package_version --access public"
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.3.0",
+    "@types/chai": "^4.2.11",
+    "@types/google-apps-script": "^1.0.13",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.13.4",
+    "chai": "^4.2.0",
+    "clasp-types": "^1.1.7",
+    "mocha": "^7.1.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "source-map-support": "^0.5.19"
+  }
+}
