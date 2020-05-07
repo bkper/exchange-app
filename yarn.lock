@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@bkper/http-request-app-types@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@bkper/http-request-app-types/-/http-request-app-types-1.0.5.tgz#fdf39cc6109e7c0c5db851121bbcc45f293e5559"
+  integrity sha512-MaEd5cCBNvTo6xw0YD5B053DxhPhED28hCyps+bReEH4BiyLiQZH9ufuRGB0BJwYhhlTBCinJmDJq6w2Ll7jBw==
+
 "@google/clasp@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@google/clasp/-/clasp-2.3.0.tgz#3bc7c3c82ae218e7a75b5e127242f736ac3bf35b"

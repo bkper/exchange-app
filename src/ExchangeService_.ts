@@ -1,4 +1,4 @@
-let RATES_ENDPOINT_URL_ = 'https://openexchangerates.org/api/latest.json';
+let RATES_ENDPOINT_URL_: string;
 
 interface Rates {
   base: string;
@@ -10,8 +10,24 @@ interface Rates {
 
 namespace ExchangeService_ {
 
+  function isDefaultRatesEndpoint(): boolean {
+    return RATES_ENDPOINT_URL_ == null || RATES_ENDPOINT_URL_.trim() == '';
+  }
+
   export function getLatestRates(): Rates {
-    return null;
+    let ratesEndpointUrl = isDefaultRatesEndpoint() ? 'https://openexchangerates.org/api/latest.json' : RATES_ENDPOINT_URL_;
+    let cachedRatesJson =  CacheService.getScriptCache().get(ratesEndpointUrl)
+    if (cachedRatesJson != null) {
+      return JSON.parse(cachedRatesJson);
+    } else {
+      let request = HttpRequestApp.newRequest(ratesEndpointUrl);
+      if (isDefaultRatesEndpoint()) {
+        request.addParam('app_id', PropertiesService.getScriptProperties().getProperty('app_id'))
+      }
+      let ratesJson = request.fetch().getContentText();
+      CacheService.getScriptCache().put(ratesEndpointUrl, ratesJson, 3600);
+      return JSON.parse(ratesJson)
+    }
   }
 
   export function convert(value: number, from: string, to: string, rates: Rates): number {

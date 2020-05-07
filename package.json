@@ -33,6 +33,7 @@
     "publish-types": "yarn build && yarn --cwd dist/@bkper/exchange-app-types publish --new-version $npm_package_version --access public"
   },
   "devDependencies": {
+    "@bkper/http-request-app-types": "^1.0.5",
     "@google/clasp": "^2.3.0",
     "@types/chai": "^4.2.11",
     "@types/google-apps-script": "^1.0.13",
