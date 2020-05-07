@@ -1,0 +1,19 @@
+{
+  "name": "@bkper/exchange-app-types",
+  "version": "1.0.0",
+  "description": "Typescript definitions for ExchangeApp",
+  "homepage": "https://bkper.com/docs/#exchangerapp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bkper/exchange-app-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bkper/exchange-app/issues",
+    "email": "mael@bkper.com"
+  },
+  "author": "Mael Caldas <mael@bkper.com>",
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {},
+  "types": "./index.d.ts"
+}
