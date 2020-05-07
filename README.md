@@ -1,6 +1,6 @@
 
-<h2 id="exchanger-app">
-ExchangerApp (Under development! Please do not use yet)
+<h2 id="exchange-app">
+ExchangeApp (Under development! Please do not use yet)
 <a href='https://script.google.com/d/12pPyeoZrmRDHjGnm4brpl-uIr424_bjAtFMjedtr5aJc_Pt7vKg3IGwy/edit?usp=sharing'>
   <img height="30" width="30" src="https://bkper.com/docs/images/google-apps-script.svg"/>
 </a>
@@ -9,7 +9,7 @@ ExchangerApp (Under development! Please do not use yet)
 Google Apps Script library to exchange values based on updated rates.
 
 [![clasp](https://img.shields.io/badge/built%20with-clasp-4285f4.svg)](https://github.com/google/clasp)
-[![npm (scoped)](https://img.shields.io/npm/v/@bkper/exchanger-app-types?color=%235889e4&label=types)](https://www.npmjs.com/package/@bkper/exchanger-app-types)
+[![npm (scoped)](https://img.shields.io/npm/v/@bkper/exchange-app-types?color=%235889e4&label=types)](https://www.npmjs.com/package/@bkper/exchange-app-types)
 
 
 <h3 id="bkper-app-setup">Setup</h3>
@@ -29,11 +29,11 @@ To add it to your script, do the following in the Apps Script code editor:
 ##### 1) Add the package:
 
 ```
-npm i -S @bkper/exchanger-app-types
+npm i -S @bkper/exchange-app-types
 ```
 or
 ```
-yarn add --dev @bkper/exchanger-app-types
+yarn add --dev @bkper/exchange-app-types
 ```
 
 ##### 2) Configure tsconfig.json:

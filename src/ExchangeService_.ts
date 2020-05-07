@@ -1,4 +1,4 @@
-let RATES_ENDPOINT_ = 'https://openexchangerates.org/api/latest.json';
+let RATES_ENDPOINT_URL_ = 'https://openexchangerates.org/api/latest.json';
 
 interface Rates {
   base: string;
@@ -8,27 +8,20 @@ interface Rates {
   }
 }
 
-namespace ExchangerService_ {
+namespace ExchangeService_ {
 
   export function getLatestRates(): Rates {
-    return {
-        "base": "USD",
-        "date": "2019-04-27",
-        "rates": {
-          "BRL": 5.59,
-          "UYU": 43.19,
-          }
-        }
+    return null;
   }
 
   export function convert(value: number, from: string, to: string, rates: Rates): number {
     rates = convertBase(rates, from);
     if (rates == null) {
-      throw `Code ${from} not supported by endpoint ${RATES_ENDPOINT_}`
+      throw `Code ${from} not supported by endpoint ${RATES_ENDPOINT_URL_}`
     }
     let rate = rates.rates[to];
     if (rate == null) {
-      throw `Code ${to} not supported by endpoint ${RATES_ENDPOINT_}`
+      throw `Code ${to} not supported by endpoint ${RATES_ENDPOINT_URL_}`
     }
     return rate * value;
   }

@@ -1,7 +1,7 @@
 /**
  * @public
  */
-class Exchanger {
+class Exchange {
 
   private value: number;
   private fromCode: string;
@@ -11,18 +11,18 @@ class Exchanger {
     this.value = value;
   }
 
-  public from(code: string): Exchanger {
+  public from(code: string): Exchange {
     this.fromCode = code;
     return this;
   }
 
-  public to(code: string): Exchanger {
+  public to(code: string): Exchange {
     this.toCode = code;
     return this;
   }
 
   public convert(): number {
-    return ExchangerService_.convert(this.value, this.fromCode, this.toCode, ExchangerService_.getLatestRates());
+    return ExchangeService_.convert(this.value, this.fromCode, this.toCode, ExchangeService_.getLatestRates());
   }
 
 
