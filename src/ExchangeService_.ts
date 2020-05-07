@@ -23,6 +23,7 @@ namespace ExchangeService_ {
       let request = HttpRequestApp.newRequest(ratesEndpointUrl);
       if (isDefaultRatesEndpoint()) {
         request.addParam('app_id', PropertiesService.getScriptProperties().getProperty('app_id'))
+        request.addParam('show_alternative','1')
       }
       let ratesJson = request.fetch().getContentText();
       CacheService.getScriptCache().put(ratesEndpointUrl, ratesJson, 3600);
