@@ -20,6 +20,7 @@ function convert(value: number, from: string, to: string) {
 /**
  * @public
  */
-function setRatesEndpoint(url: string): void {
+function setRatesEndpoint(url: string, cacheSeconds: number): void {
   RATES_ENDPOINT_URL_ = url;
+  RATES_ENDPOINT_CACHE_SECONDS_ = cacheSeconds;
 }

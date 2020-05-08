@@ -1,4 +1,5 @@
 let RATES_ENDPOINT_URL_: string;
+let RATES_ENDPOINT_CACHE_SECONDS_: number;
 
 interface Rates {
   base: string;
@@ -21,13 +22,20 @@ namespace ExchangeService_ {
       return JSON.parse(cachedRatesJson);
     } else {
       let request = HttpRequestApp.newRequest(ratesEndpointUrl);
+
       if (isDefaultRatesEndpoint()) {
         request.addParam('app_id', PropertiesService.getScriptProperties().getProperty('app_id'))
         request.addParam('show_alternative','1')
       }
+      
       let ratesJson = request.fetch().getContentText();
       let rates = JSON.parse(ratesJson);
-      CacheService.getScriptCache().put(ratesEndpointUrl, ratesJson, 3600);
+
+      if (isDefaultRatesEndpoint()) {
+        CacheService.getScriptCache().put(ratesEndpointUrl, ratesJson, 3600);
+      } else if (RATES_ENDPOINT_CACHE_SECONDS_ != null && RATES_ENDPOINT_CACHE_SECONDS_ > 0) {
+        CacheService.getScriptCache().put(ratesEndpointUrl, ratesJson, RATES_ENDPOINT_CACHE_SECONDS_);
+      }
       return rates;
     }
   }

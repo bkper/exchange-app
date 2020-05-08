@@ -17,7 +17,7 @@ declare namespace Bkper {
          */
         exchange(value: number): Exchange;
 
-        setRatesEndpoint(url: string): void;
+        setRatesEndpoint(url: string, cacheSeconds: number): void;
 
     }
 
@@ -30,6 +30,8 @@ declare namespace Bkper {
         to(code: string): Exchange;
 
     }
+
+    export var RATES_ENDPOINT_CACHE_SECONDS_: number;
 
     export var RATES_ENDPOINT_URL_: string;
 
