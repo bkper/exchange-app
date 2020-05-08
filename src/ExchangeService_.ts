@@ -26,8 +26,9 @@ namespace ExchangeService_ {
         request.addParam('show_alternative','1')
       }
       let ratesJson = request.fetch().getContentText();
+      let rates = JSON.parse(ratesJson);
       CacheService.getScriptCache().put(ratesEndpointUrl, ratesJson, 3600);
-      return JSON.parse(ratesJson)
+      return rates;
     }
   }
 
