@@ -17,7 +17,7 @@ declare namespace Bkper {
          */
         exchange(value: number): Exchange;
 
-        setRatesEndpoint(url: string, cacheSeconds: number): void;
+        setRatesEndpoint(url: string, cacheSeconds?: number): void;
 
     }
 
