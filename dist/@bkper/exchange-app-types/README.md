@@ -1,6 +1,6 @@
 # Summary
 
-This package contains Typescript definitions for [ExchangeApp](https://bkper.com/docs/#exchangerapp)
+This package contains Typescript definitions for [ExchangeApp](https://bkper.com/docs)
 
 # Instalation
 
