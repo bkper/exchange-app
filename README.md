@@ -37,7 +37,7 @@ You can change the currency endpoint if you need to implement your own toA query
     "SEK": 10.2983,
     "EUR": 1.092,
     "USD": 1.2234,
-    ...
+    //...
   }
 }
 ```
