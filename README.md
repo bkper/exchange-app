@@ -1,7 +1,7 @@
 
 ## ExchangeApp
 
-Google Apps Script library to exchange values based on updated rates.
+A Google Apps Script library to exchange currencies based on updated rates.
 
 [![clasp](https://img.shields.io/badge/built%20with-clasp-4285f4.svg)](https://github.com/google/clasp)
 [![npm (scoped)](https://img.shields.io/npm/v/@bkper/exchange-app-types?color=%235889e4&label=types)](https://www.npmjs.com/package/@bkper/exchange-app-types)
@@ -37,7 +37,6 @@ You can change the currency endpoint if you need to implement your own toA query
     "SEK": 10.2983,
     "EUR": 1.092,
     "USD": 1.2234,
-    //...
   }
 }
 ```

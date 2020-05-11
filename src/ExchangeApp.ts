@@ -41,7 +41,6 @@ function convert(value: number, from: string, to: string) {
  *      AOA: 135.295998,
  *      ARS: 9.750101,
  *      AUD: 1.390866,
- *      //...
  *    }
  *  }
  * 
