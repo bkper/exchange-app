@@ -1,5 +1,5 @@
 
-## ExchangeApp <a href='https://script.google.com/d/12pPyeoZrmRDHjGnm4brpl-uIr424_bjAtFMjedtr5aJc_Pt7vKg3IGwy/edit?usp=sharing'><img height="30" width="30" src="https://bkper.com/docs/images/google-apps-script.svg"/></a>
+## ExchangeApp
 
 Google Apps Script library to exchange values based on updated rates.
 
@@ -59,7 +59,7 @@ var value = ExchangeApp.exchange(20).from('USD').to('BRL').convert();
 
 ### Setup
 
-This library is already published as an Apps Script, making it easy to include in your project. 
+This library is already published as an [Apps Script](https://script.google.com/d/12pPyeoZrmRDHjGnm4brpl-uIr424_bjAtFMjedtr5aJc_Pt7vKg3IGwy/edit?usp=sharing), making it easy to include in your project. 
 
 To add it to your script, do the following in the Apps Script code editor:
 
