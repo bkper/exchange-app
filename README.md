@@ -25,7 +25,7 @@ Rates are updated once per hour. Read the [FAQ for more details](https://openexc
 
 ### Changing rates endpoint
 
-You can change the currency endpoint if you need to implement your own toA query historical rates or different precision. The endpoint response JSON format should be:
+You can change the currency endpoint if you need to implement your own endpoint to query historical rates, or different precision. The endpoint response JSON format should be:
 
 ```json
 {
@@ -50,7 +50,7 @@ To convert 20 USD to BRL based on rates of day 2018-04-08:
 
 
 ```js
-ExchangeApp.setRatesEndpoint('https://api.exchangeratesapi.io/2010-01-12', 3600//cache)
+ExchangeApp.setRatesEndpoint('https://api.exchangeratesapi.io/2018-04-08', 3600//cache)
 
 var value = ExchangeApp.exchange(20).from('USD').to('BRL').convert();
 ```
