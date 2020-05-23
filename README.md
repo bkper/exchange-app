@@ -27,6 +27,18 @@ Rates are updated once per hour. Read the [FAQ for more details](https://openexc
 
 You can change the currency endpoint if you need to implement your own endpoint to query historical rates, or different precision. The endpoint response JSON format should be:
 
+```ts
+{
+  base: string;
+  date: string;
+  rates: {
+    [key: string]: number;
+  }
+}
+```
+
+Example:
+
 ```json
 {
   "base": "EUR",

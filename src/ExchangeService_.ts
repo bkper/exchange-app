@@ -29,7 +29,23 @@ namespace ExchangeService_ {
       }
       
       let ratesJson = request.fetch().getContentText();
-      let rates = JSON.parse(ratesJson);
+      let rates: Rates = JSON.parse(ratesJson);
+
+      if (rates == null) {
+        throw `Unable to get exchange rates from endpoint ${ratesEndpointUrl}`;
+      }
+
+      if (rates.base == null || rates.rates == null) {
+        throw `Rates json from ${ratesEndpointUrl} in wrong format. Expected:
+        {
+          base: string;
+          date: string;
+          rates: {
+            [key: string]: number;
+          }
+        }
+        `;
+      }
 
       if (isDefaultRatesEndpoint()) {
         CacheService.getScriptCache().put(ratesEndpointUrl, ratesJson, 3600);
