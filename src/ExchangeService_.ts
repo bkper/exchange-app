@@ -1,13 +1,6 @@
 let RATES_ENDPOINT_URL_: string;
 let RATES_ENDPOINT_CACHE_SECONDS_: number;
 
-interface Rates {
-  base: string;
-  date: string;
-  rates: {
-    [key: string]: number;
-  }
-}
 
 namespace ExchangeService_ {
 
@@ -15,7 +8,7 @@ namespace ExchangeService_ {
     return RATES_ENDPOINT_URL_ == null || RATES_ENDPOINT_URL_.trim() == '';
   }
 
-  export function getLatestRates(): Rates {
+  export function getRates(): Rates {
     let ratesEndpointUrl = isDefaultRatesEndpoint() ? 'https://openexchangerates.org/api/latest.json' : RATES_ENDPOINT_URL_;
     let cachedRatesJson =  CacheService.getScriptCache().get(ratesEndpointUrl)
     if (cachedRatesJson != null) {
@@ -59,11 +52,11 @@ namespace ExchangeService_ {
   export function convert(value: number, from: string, to: string, rates: Rates): number {
     rates = convertBase(rates, from);
     if (rates == null) {
-      throw `Code ${from} not supported by endpoint ${RATES_ENDPOINT_URL_}`
+      throw `Code ${from} not found in ${JSON.stringify(rates)}`
     }
     let rate = rates.rates[to];
     if (rate == null) {
-      throw `Code ${to} not supported by endpoint ${RATES_ENDPOINT_URL_}`
+      throw `Code ${to} not found in ${JSON.stringify(rates)}`
     }
     return rate * value;
   }

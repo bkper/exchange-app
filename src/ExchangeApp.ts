@@ -22,8 +22,12 @@ function exchange(value: number): Exchange {
  * @public
  * 
  */
-function convert(value: number, from: string, to: string) {
-  return ExchangeService_.convert(value, from, to, ExchangeService_.getLatestRates());
+function convert(value: number, from: string, to: string, rates?: Rates) {
+  if (rates == null) {
+    return ExchangeService_.convert(value, from, to, ExchangeService_.getRates());
+  } else {
+    return ExchangeService_.convert(value, from, to, rates)
+  }
 }
 
 

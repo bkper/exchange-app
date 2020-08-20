@@ -8,6 +8,7 @@ class Exchange {
   private value: number;
   private fromCode: string;
   private toCode: string;
+  private rates: Rates;
 
   /**
    * The value to convert
@@ -33,12 +34,24 @@ class Exchange {
   }
 
   /**
+   * Optionally specify the rates. 
+   */
+  public withRates(rates: Rates): Exchange {
+    this.rates = rates;
+    return this;
+  }
+
+  /**
    * Perform the convertion
    * 
    * @returns The converted value
    */
   public convert(): number {
-    return ExchangeService_.convert(this.value, this.fromCode, this.toCode, ExchangeService_.getLatestRates());
+    if (this.rates == null) {
+      return ExchangeService_.convert(this.value, this.fromCode, this.toCode, ExchangeService_.getRates());
+    } else {
+      return ExchangeService_.convert(this.value, this.fromCode, this.toCode, this.rates)
+    }    
   }
 
 

@@ -13,10 +13,15 @@ declare namespace Bkper {
         /**
          * Converts a value from one code to a onother, based on given rates from the rates endpoint.
          */
-        convert(value: number, from: string, to: string): number;
+        convert(value: number, from: string, to: string, rates?: Rates): number;
 
         /**
          * Fluent interface to convert a value from one code to another, based on given rates from the rates endpoint.
+         *
+         * @example 
+         * ```js
+         *  ExchangeApp.exchange(20).from('USD').to('BRL').convert()
+         * ```
          */
         exchange(value: number): Exchange;
 
@@ -66,6 +71,24 @@ declare namespace Bkper {
          * The code to convert to
          */
         to(code: string): Exchange;
+
+        /**
+         * Optionally specify the rates.
+         */
+        withRates(rates: Rates): Exchange;
+
+    }
+
+    /**
+     * The Rates to be applied when exchanging values
+     */
+    export interface Rates {
+
+        base: string;
+
+        date: string;
+
+        rates: {[key: string]: number};
 
     }
 
