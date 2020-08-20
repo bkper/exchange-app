@@ -3,7 +3,7 @@
  * 
  * @public
  */
-interface Rates {
+interface ExchangeRates {
   base: string;
   date: string;
   rates: {

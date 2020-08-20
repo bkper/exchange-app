@@ -13,7 +13,7 @@ declare namespace Bkper {
         /**
          * Converts a value from one code to a onother, based on given rates from the rates endpoint.
          */
-        convert(value: number, from: string, to: string, rates?: Rates): number;
+        convert(value: number, from: string, to: string, rates?: ExchangeRates): number;
 
         /**
          * Fluent interface to convert a value from one code to another, based on given rates from the rates endpoint.
@@ -75,14 +75,14 @@ declare namespace Bkper {
         /**
          * Optionally specify the rates.
          */
-        withRates(rates: Rates): Exchange;
+        withRates(rates: ExchangeRates): Exchange;
 
     }
 
     /**
      * The Rates to be applied when exchanging values
      */
-    export interface Rates {
+    export interface ExchangeRates {
 
         base: string;
 

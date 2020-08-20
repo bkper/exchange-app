@@ -8,7 +8,7 @@ class Exchange {
   private value: number;
   private fromCode: string;
   private toCode: string;
-  private rates: Rates;
+  private rates: ExchangeRates;
 
   /**
    * The value to convert
@@ -36,7 +36,7 @@ class Exchange {
   /**
    * Optionally specify the rates. 
    */
-  public withRates(rates: Rates): Exchange {
+  public withRates(rates: ExchangeRates): Exchange {
     this.rates = rates;
     return this;
   }

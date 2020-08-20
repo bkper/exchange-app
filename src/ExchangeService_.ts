@@ -8,7 +8,7 @@ namespace ExchangeService_ {
     return RATES_ENDPOINT_URL_ == null || RATES_ENDPOINT_URL_.trim() == '';
   }
 
-  export function getRates(): Rates {
+  export function getRates(): ExchangeRates {
     let ratesEndpointUrl = isDefaultRatesEndpoint() ? 'https://openexchangerates.org/api/latest.json' : RATES_ENDPOINT_URL_;
     let cachedRatesJson =  CacheService.getScriptCache().get(ratesEndpointUrl)
     if (cachedRatesJson != null) {
@@ -22,7 +22,7 @@ namespace ExchangeService_ {
       }
       
       let ratesJson = request.fetch().getContentText();
-      let rates: Rates = JSON.parse(ratesJson);
+      let rates: ExchangeRates = JSON.parse(ratesJson);
 
       if (rates == null) {
         throw `Unable to get exchange rates from endpoint ${ratesEndpointUrl}`;
@@ -49,7 +49,7 @@ namespace ExchangeService_ {
     }
   }
 
-  export function convert(value: number, from: string, to: string, rates: Rates): number {
+  export function convert(value: number, from: string, to: string, rates: ExchangeRates): number {
     rates = convertBase(rates, from);
     if (rates == null) {
       throw `Code ${from} not found in ${JSON.stringify(rates)}`
@@ -61,7 +61,7 @@ namespace ExchangeService_ {
     return rate * value;
   }
 
-  function convertBase(rates: Rates, toBase: string): Rates {
+  function convertBase(rates: ExchangeRates, toBase: string): ExchangeRates {
     rates.rates[rates.base] = 1
     if (rates.base == toBase) {
       return rates;
