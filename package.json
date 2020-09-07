@@ -1,6 +1,6 @@
 {
   "name": "@bkper/exchange-app",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Google Apps Script library to exchange values based on updated rates",
   "homepage": "https://bkper.com/docs",
   "repository": {
