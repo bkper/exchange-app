@@ -4,7 +4,7 @@
     "libraries": [{
       "userSymbol": "HttpRequestApp",
       "libraryId": "1Iqaz0dbrlOXp9D2giO0DS6CDW_Q4IrgfhTJyYqxknww_OmFVF_4NQVR_",
-      "version": "8"
+      "version": "9"
     }]
   },
   "exceptionLogging": "STACKDRIVER",
