@@ -1,6 +1,6 @@
 {
   "name": "@bkper/exchange-app-types",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Typescript definitions for ExchangeApp",
   "homepage": "https://bkper.com/docs",
   "repository": {
