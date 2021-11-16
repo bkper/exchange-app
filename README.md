@@ -75,7 +75,7 @@ This library is already published as an [Apps Script](https://script.google.com/
 To add it to your script, do the following in the Apps Script code editor:
 
 1. Click on the menu item "Resources > Libraries..."
-2. In the "Add a Library" text box, enter the Script ID "**1Iqaz0dbrlOXp9D2giO0DS6CDW_Q4IrgfhTJyYqxknww_OmFVF_4NQVR_**" and click the "Select" button.
+2. In the "Add a Library" text box, enter the Script ID "**12pPyeoZrmRDHjGnm4brpl-uIr424_bjAtFMjedtr5aJc_Pt7vKg3IGwy**" and click the "Select" button.
 3. Choose a version in the dropdown box (usually best to pick the latest version).
 4. Click the "Save" button.
 
